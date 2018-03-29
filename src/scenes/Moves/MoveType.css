@@ -29,7 +29,6 @@ ul {
 }
 
 .move-type-button li {
-  /*clear:both;*/
   list-style-type: none;
 }
 .move-type-button li:before {
@@ -49,3 +48,41 @@ ul {
 .move-type-button-more-info a:visited {
   color: rgb(55, 155, 252);
 }
+
+@media only screen and (max-device-width : 425px) {
+.move-type-button {
+  min-height: 100%;
+}
+.bob.bob {
+  background-color: inherit;
+  background-image: none;
+  margin-right: 9rem;
+  padding: 0em;
+  font-weight: normal;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.bob.bob li {
+  background-color: inherit;
+}
+.bob.bob:hover {
+  background-color: inherit;
+}
+.bob.bob:hover li {
+  background-color: inherit;
+}
+.bob.bob li:before {
+  content: none;
+  background-color: inherit;
+}
+.bob.bob[aria-expanded=false] {
+  background-image: none;
+}
+
+}
+
+
+

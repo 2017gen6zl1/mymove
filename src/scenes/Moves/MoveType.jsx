@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
@@ -8,6 +9,7 @@ import BigButton from 'shared/BigButton';
 import trailerGray from 'shared/icon/trailer-gray.svg';
 import truckGray from 'shared/icon/truck-gray.svg';
 import hhgPpmCombo from 'shared/icon/hhg-ppm-combo.svg';
+import screenSize from './screensize';
 import './MoveType.css';
 
 export class BigButtonGroup extends Component {
@@ -31,22 +33,36 @@ export class BigButtonGroup extends Component {
           className="move-type-button"
         >
           <p className="restrict-left">{description}</p>
+          {/*<screenSize /> */}
           <img src={icon} alt={altTag} />
           <p className="font-2">{title}</p>
-          {Object.keys(prosList || {}).map(function(key) {
-            const pros = prosList[key];
-            return (
-              <div key={key.toString()}>
-                <p>{key}</p>
-                <ul className="font-3">
-                  {pros.map(item => <li key={item}>{item}</li>)}
-                </ul>
+          <ul className="usa-accordion bob">
+            <li>
+              <div
+                className="usa-accordion-button bob"
+                aria-expanded="false"
+                aria-controls={value}
+              >
+                &gt; &nbsp;Pros and Cons
               </div>
-            );
-          }, this)}
-          <p className="move-type-button-more-info">
-            <a href="about:blank">more information</a>
-          </p>
+              <div id={value} className="usa-accordion-content bob">
+                {Object.keys(prosList || {}).map(function(key) {
+                  const pros = prosList[key];
+                  return (
+                    <div key={key.toString()}>
+                      <p>{key}</p>
+                      <ul className="font-3">
+                        {pros.map(item => <li key={item}>{item}</li>)}
+                      </ul>
+                    </div>
+                  );
+                }, this)}
+                <p className="move-type-button-more-info">
+                  <a href="about:blank">more information</a>
+                </p>
+              </div>
+            </li>
+          </ul>
         </BigButton>
       );
     };
